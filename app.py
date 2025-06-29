@@ -169,7 +169,7 @@ async def get_next_interaction(
 async def classify_with_gemini(text: str, session_id: str = "default") -> str:
     """
     Clasifica el texto de entrada usando Gemini según las categorías de emergencia definidas.
-    - Si encuentra una coincidencia clara, o que ves que pertenece a alguna de las emergencias proporcionadas y devuelve el nombre formal de la emergencia.
+    - Si encuentra una coincidencia clara, devuelve el nombre formal de la emergencia.
     - Si no aplica, devuelve el texto original sin modificar.
 
     Args:
@@ -185,12 +185,7 @@ async def classify_with_gemini(text: str, session_id: str = "default") -> str:
         "Astillas o Espinas Superficiales",
         "Intoxicación Leve por Alimentos",
         "Dolor Abdominal Repentino",
-        "Dolor en el Pecho Leve",
-        "Crisis de Ansiedad o Pánico",
-        "Mordeduras (Animales o Personas)",
-        "Dientes Rotos o Caídos",
-        "Reacción Alérgica Leve",
-        "Dificultad para Respirar (Leve)",
+        "Quemaduras de Segundo Grado",
         "Quemaduras Eléctricas",
         "Atragantamiento en Adultos y Niños Mayores",
         "Convulsiones (Post-Convulsión y Protección)",
@@ -217,7 +212,7 @@ async def classify_with_gemini(text: str, session_id: str = "default") -> str:
     # Prompt optimizado para clasificación estricta
     CLASSIFICATION_PROMPT = f"""
     Eres un clasificador médico de emergencias. Analiza el texto del usuario y:
-    1. Devuelve **EXACTAMENTE** uno de estos nombres de emergencia si hay coincidencia CLARA o pertenece a alguna de estas:
+    1. Devuelve **EXACTAMENTE** uno de estos nombres de emergencia si hay coincidencia CLARA:
     {EMERGENCIAS_VALIDAS}
 
     2. Si el texto NO describe una emergencia médica o es ambiguo, devuelve **el texto original tal cual**.
