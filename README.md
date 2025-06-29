@@ -162,12 +162,19 @@ Puedes desplegar este backend en:
 ├── requirements.txt       # Lista de dependencias
 └── .env                   # Variables de entorno
 ```
+## 11. Equipo
+Hackathon Built With AI - Grupo m-IA-u
+  1. Diego Alberto Vargas Vaca
+  2. Job Natanael Contreras Garzón
+  3. Alan Fabian Melgar Alvis
+  4. Jorge Adhemar Alba Copa
+  5. Miguel Angel Gutierrez Santalla
 
-## 11. 🛡️ Licencia
+## 12. 🛡️ Licencia
 
-MIT © 2025 - Diego A. Vargas Vaca
+MIT © 2025 - Diego A. Vargas Vaca 
 
-## 12. 📬 Contacto
+## 13. 📬 Contacto
 
 - GitHub: [DAVV422](https://github.com/DAVV422)
 - Email: diegoalberto42216@gmail.com
