@@ -274,7 +274,7 @@ async def identify_emergency(text: str) -> str:
     }
 
     text_lower = text.lower()
-    #text_lower = await classify_with_gemini(text_lower)
+    text_lower = await classify_with_gemini(text_lower)
     # Priorizar coincidencias más específicas o más largas si hay solapamiento
     # Por ejemplo, "rcp bebes" antes que "rcp"
     sorted_keywords = sorted(emergency_keywords.keys(), key=len, reverse=True)
