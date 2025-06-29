@@ -249,12 +249,19 @@ async def identify_emergency(text: str) -> str:
     """
     emergency_keywords = {
         "ojo": "Cuerpo Extraño en el Ojo",
-        "quemadura": "Quemaduras de Segundo Grado",
-        "electrica": "Quemaduras Eléctricas",
-        "atragantamiento": "Atragantamiento en Adultos y Niños Mayores",
-        "convulsion": "Convulsiones (Post-Convulsión y Protección)",
-        "diente": "Dientes Rotos o Caídos",
+        "intoxicacion": "intoxicacion leve por alimentos",
+        "abdomen": "Dolor abdominal",
+        "crisis": "Crisis o ataque de ansiedad",
+        "mordedura": "Mordidas de animales o personas",
+        "alergia": "Alergias leves",
+        "diente": "Dientes Rotos o Caídos",        
         "respirar": "Dificultad para Respirar (Leve)",
+        "quemadura": "Quemaduras de Primer Grado",
+        "atragantamiento": "Atragantamiento en Adultos y Niños Mayores",
+        "rcp niños": "RCP en Niños (1 a 8 años)",
+        "rcp bebes": "RCP en Bebés (< 1 año)",
+        "rcp": "RCP en Adultos (Solo Manos)", # General RCP, order matters here
+        "electrica": "Quemaduras Eléctricas",
         "fractura": "Fracturas Evidentes o Sospechosas",
         "hemorragia": "Hemorragia Severa",
         "ahogamiento": "Ahogamiento",
@@ -267,9 +274,7 @@ async def identify_emergency(text: str) -> str:
         "insolacion": "Insolación Leve / Agotamiento por Calor",
         "hipotermia": "Hipotermia Leve",
         "desmayo": "Desmayo (Síncope Simple)",
-        "rcp niños": "RCP en Niños (1 a 8 años)",
-        "rcp bebes": "RCP en Bebés (< 1 año)",
-        "rcp": "RCP en Adultos (Solo Manos)", # General RCP, order matters here
+        "convulsion": "Convulsiones (Post-Convulsión y Protección)",
         "revision": "Revisión Básica de Conciencia y Respiración"
     }
 
