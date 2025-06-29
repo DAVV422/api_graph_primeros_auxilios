@@ -35,7 +35,7 @@ app.add_middleware(
 
 # 1. Conexión a Neo4j
 # Asegúrate de que Neo4j esté corriendo y las credenciales sean correctas
-#driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "neoia123.")) # Reemplaza con tus credenciales
+#driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password")) # Reemplaza con tus credenciales
 #driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD))
 neo4j_driver = None
 
@@ -182,7 +182,15 @@ async def classify_with_gemini(text: str, session_id: str = "default") -> str:
     # Lista completa de emergencias (actualizable)
     EMERGENCIAS_VALIDAS = [
         "Cuerpo Extraño en el Ojo",
-        "Quemaduras de Segundo Grado",
+        "Astillas o Espinas Superficiales",
+        "Intoxicación Leve por Alimentos",
+        "Dolor Abdominal Repentino",
+        "Dolor en el Pecho Leve",
+        "Crisis de Ansiedad o Pánico",
+        "Mordeduras (Animales o Personas)",
+        "Dientes Rotos o Caídos",
+        "Reacción Alérgica Leve",
+        "Dificultad para Respirar (Leve)",
         "Quemaduras Eléctricas",
         "Atragantamiento en Adultos y Niños Mayores",
         "Convulsiones (Post-Convulsión y Protección)",
@@ -249,6 +257,7 @@ async def identify_emergency(text: str) -> str:
     """
     emergency_keywords = {
         "ojo": "Cuerpo Extraño en el Ojo",
+        "astillas": "astillas o agujas insertadas",
         "intoxicacion": "intoxicacion leve por alimentos",
         "abdomen": "Dolor abdominal",
         "crisis": "Crisis o ataque de ansiedad",
