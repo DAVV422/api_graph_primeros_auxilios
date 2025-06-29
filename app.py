@@ -509,6 +509,8 @@ async def chat(message: UserMessage):
         is_emergency_end=is_flow_end,
         original_type=response_type
     )
+    
+    final_response_content = final_response_content.replace("*", "")
 
     # Si se está esperando una respuesta (pregunta activa), se programa la tarea de timeout
     if state["waiting_for_answer"]:
