@@ -1,12 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from neo4j import GraphDatabase
 from langchain.memory import ConversationBufferMemory # Mantener si se planea usar LLM
 from neo4j import AsyncGraphDatabase
 from typing import Dict, Any
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
-import re
 from datetime import datetime, timedelta
 import google.generativeai as genai # Nuevo: Importar Gemini API
 import os # Nuevo: Para cargar variables de entorno
