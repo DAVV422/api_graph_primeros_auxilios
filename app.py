@@ -81,7 +81,7 @@ async def get_next_interaction(
     Recupera la siguiente pregunta o paso de la guía desde Neo4j
     basándose en el estado actual de la conversación y la entrada del usuario.
     """
-    with neo4j_driver.session() as session:
+    async with neo4j_driver.session() as session:
         # Escenario 1: Es la primera interacción para una emergencia o se reinicia el flujo
         if last_node_id is None and not is_waiting_for_answer:
             # Busca la primera evaluación (pregunta) para la emergencia
@@ -90,8 +90,8 @@ async def get_next_interaction(
             RETURN ev.pregunta AS content, ID(ev) AS node_id, 'question' AS type
             ORDER BY ID(ev) LIMIT 1
             """
-            result = session.run(query, name=emergency_name)
-            record = result.single()
+            result = await session.run(query, name=emergency_name)
+            record = await result.single()
             if record:
                 return {
                     "type": record["type"],
@@ -122,8 +122,8 @@ async def get_next_interaction(
                 RETURN paso.accion AS content, ID(paso) AS node_id, 'step' AS type
                 ORDER BY paso.orden LIMIT 1
                 """
-                result = session.run(query, last_node_id=last_node_id)
-                record = result.single()
+                result = await session.run(query, last_node_id=last_node_id)
+                record = await result.single()
                 if record:
                     return {
                         "type": record["type"],
@@ -148,8 +148,8 @@ async def get_next_interaction(
             RETURN next_paso.accion AS content, ID(next_paso) AS node_id, 'step' AS type
             ORDER BY next_paso.orden LIMIT 1
             """
-            result = session.run(query, last_node_id=last_node_id)
-            record = result.single()
+            result = await session.run(query, last_node_id=last_node_id)
+            record = await result.single()
 
             if record and record["content"]: # Asegurarse de que se encontró un siguiente paso
                 return {
