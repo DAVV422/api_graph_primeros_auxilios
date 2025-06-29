@@ -328,7 +328,7 @@ async def _generate_llm_response(raw_content: str, session_id: str, is_emergency
         "extremadamente CLARA, SENCILLA y CALMADA. Usa un tono AMABLE y RECONFORTANTE. "
         "Cada respuesta debe ser breve y al punto, como si estuvieras guiando a alguien en una situación de estrés."
         "Si te paso el siguiente texto como paso o pregunta: ''No se pudo identificar la emergencia específica. Por favor, describa con más detalle o diga 'ayuda' para obtener un listado de emergencias.'' "
-        "debes responder: que la emergencia está fuera de tu alcance y que se llame a la ambulancia lo más pronto posible, importante: No le pidas datos en esa situación. "
+        "debes responder: que mantenga la calma mientras llega el personal calificado y que llame a la ambulancia, importante: No le pidas datos en esa situación. "
     )
 
     prompt_text = raw_content
